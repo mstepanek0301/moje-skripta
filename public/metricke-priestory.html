@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html lang=sk>
+    <head>
+        <title>Metrické priestory</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="temml.css">
+    </head>
+    <body>
+
+        <h1>Metrické priestory</h1>
+        <h2>Otvorené a uzavreté množiny</h2>
+        <p>Nech <math><mi>M</mi></math> je metrický priestor s metrikou <math><mi>d</mi></math>.</p>
+        <section class="env definition">
+            <p>
+                Množina <math><mi>U</mi></math> je <i>otvorená</i>, pokiaľ v nej má každý bod aj nejaké svoje okolie, teda pre každé <math><mrow><mi>x</mi><mo>∈</mo></mrow><mrow><mi>U</mi></mrow></math> existuje <math><mi>ϵ</mi></math> také, že <math><mrow><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>ϵ</mi><mo form="postfix" stretchy="false">)</mo><mo>⊆</mo></mrow><mrow><mi>M</mi></mrow></math>.
+            </p>
+            <p>
+                Množina <math><mi>U</mi></math> je <i>uzavretá</i>, pokiaľ obsahuje všetky svoje limitné body, teda pre každú postupnosť <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow><mrow><mo>→</mo></mrow><mrow><mi>x</mi></mrow></math>, kde <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow><mrow><mo>∈</mo></mrow><mrow><mi>U</mi></mrow></math> aj <math><mrow><mi>x</mi><mo>∈</mo></mrow><mrow><mi>U</mi></mrow></math>.
+            </p>
+        </section>
+        <section class="env definition">
+            <p>
+                <i>Vnútro</i> množiny <math><mi>U</mi></math> je množina tých bodov, ktoré majú aj nejaké svoje okolie celé v <math><mi>U</mi></math>, teda také <math><mrow><mi>x</mi><mo>∈</mo></mrow><mrow><mi>M</mi></mrow></math>, pre ktoré existuje <math><mi>ϵ</mi></math> také, že <math><mrow><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>ϵ</mi><mo form="postfix" stretchy="false">)</mo><mo>⊆</mo></mrow><mrow><mi>U</mi></mrow></math>.
+            </p>
+            <p>
+                <i>Vonkajšok</i> množiny <math><mi>U</mi></math> je to isté, ale keď má nejaké okolie <em>mimo</em> <math><mi>M</mi></math>.
+            </p>
+            <p>
+                <i>Hranica</i> <math><mi>U</mi></math> (značíme <math><mrow><mi>∂</mi><mi>U</mi></mrow></math>) sú tie body, ktoré nie sú ani vnútri, ani vonku, teda na každom okolí majú nejaké body z <math><mi>M</mi></math> aj mimo <math><mi>M</mi></math>.
+            </p>
+        </section>
+        <section class="env claim">
+            <p>Množina <math><mi>U</mi></math> je otvorená práve vtedy, keď neobsahuje žiadny bod svojej hranice, a uzavretá práve vtedy, keď obsahuje celú svoju hranicu.</p>
+            <section class="env proof">
+                <p>
+                    Pre otvorenú množinu je to priamo z definície. Pre uzavretú: k nejakému bodu <math><mrow><mi>x</mi><mo>∈</mo></mrow><mrow><mi>M</mi></mrow></math> sa dá z <math><mi>U</mi></math> dokonvergovať práve vtedy, keď na ľubovoľne malom okolí <math><mi>x</mi></math> je nejaký bod z <math><mi>U</mi></math>, čo sú práve body vnútra a hranice <math><mi>U</mi></math>. Každá množina ale obsahuje svoje vnútro, stačí teda, aby obsahovala svoju hranicu.
+                </p>
+            </section>
+        </section>
+        <section class="env corollary">
+            <p>Množina je uzavretá práve vtedy, keď jej doplnok je otvorený.</p>
+            <section class="env proof">
+                <p>Hranica je rovnaká pre množinu aj jej doplnok.</p>
+            </section>
+        </section>
+        <section class="env definition">
+            <p><i>Uzáver</i> množiny <math><mi>U</mi></math> (značíme <math><menclose notation="top" class="tml-overline"><mi>U</mi></menclose></math>) je <math><mrow><mi>U</mi><mo>∪</mo></mrow><mrow><mi>∂</mi><mi>U</mi></mrow></math>.</p>
+        </section>
+        <section class="env claim">
+            <p>Vnútro množiny <math><mi>U</mi></math> je jej najväčšia (vzhľadom na inklúziu) otvorená podmnožina.</p>
+            <section class="env proof">
+                <p>Vnútro je z definície otvorené. Ak by mala <math><mrow><mi>V</mi><mo>⊆</mo></mrow><mrow><mi>U</mi></mrow></math> obsahovať nejaký iný bod <math><mi>x</mi></math>, musel by <math><mi>x</mi></math> byť z hranice <math><mi>U</mi></math>, ale <math><mi>x</mi></math> má na každom svojom okolí nejaký bod mimo <math><mi>U</mi></math>, a teda by <math><mi>V</mi></math> nebola otvorená.</p>
+            </section>
+        </section>
+        <section class="env corollary">
+            <p>
+                Uzáver množiny <math><mi>U</mi></math> je jej najmenšia uzavretá nadmnožina.
+            </p>
+        </section>
+        <p><span class="todo">zobrazenie je spojité práve vtedy keď vzor otvorenej je otvorená, Heineho veta</span></p>
+
+        <h2>Úplné metrické priestory</h2>
+        <section class="env definition">
+            <p>Metrický priestor je úplný, keď v ňom má každá cauchyovská postupnosť limitu.</p>
+        </section>
+        <section class="env claim">
+            <p>
+                <span class="label">zúplnenie</span>
+                Nech <math><mi>M</mi></math> je metrický priestor, potom ho vieme doplniť na <math><menclose notation="top" class="tml-overline"><mi>M</mi></menclose></math> tak, že pri tom zachováme pôvodné vzdialenosti a <math><menclose notation="top" class="tml-overline"><mi>M</mi></menclose></math> je úplný.
+            </p>
+            <section class="env proof">
+                <p>
+                    Zoberme si všetky cauchyovské postupnosti v <math><mi>M</mi></math>. Dve postupnosti budú ekvivalentné, keď sú od nejakého bodu aj navzájom ľubovoľne blízko (ako BC-podmienka ale pre obe tie postupnosti). Tieto triedy ekvivalencie budú tvoriť <math><msup><mi>M</mi><mo lspace="0em" rspace="0em" class="tml-prime">′</mo></msup></math>.
+                </p>
+                <p>
+                    Vzdialenosť postupnosti <math><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow></math> a <math><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>y</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow></math> definujeme ako <math><mrow><msub><mi>lim</mi><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow></msub><mo>⁡</mo><mspace width="0.1667em"></mspace></mrow><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>n</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>n</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow></math>. Keďže tie postupnosti sú cauchyovské, tak to konverguje a je to rovnaké pre ľubovoľné postupnosti z tých ekvivalenčných tried. To, že je to legit metrika, vyplýva z toho, že je to limita tej pôvodnej metriky, ktorá je tiež legit.
+                </p>
+                <p>
+                    Pôvodné body z <math><mi>M</mi></math> budú reprezentované konštantnými postupnosťami, čo zachováva pôvodné vzdialenosti.
+                </p>
+            </section>
+        </section>
+        <section class="env theorem">
+            <p>
+                <span class="label">Cantorova o vnorených množinách</span>
+                Nech <math><mi>M</mi></math> je úplný metrický priestor, <math><mrow><msub><mi>U</mi><mn>1</mn></msub><mo>⊇</mo></mrow><mrow><msub><mi>U</mi><mn>2</mn></msub><mo>⊇</mo></mrow><mrow><mo>…</mo></mrow></math> sú uzavreté množiny z <math><mi>M</mi></math> a <math><mrow><msub><mi>lim</mi><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow></msub><mo>⁡</mo><mspace width="0.1667em"></mspace></mrow><mrow><mi>diam</mi><mo>⁡</mo><mspace width="0.1667em"></mspace></mrow><mrow><msub><mi>U</mi><mi>n</mi></msub><mo>=</mo></mrow><mrow><mn>0</mn></mrow></math>. Potom <math><mrow><mo stretchy="true">⋂</mo></mrow><mrow><msub><mi>U</mi><mi>n</mi></msub></mrow></math> má práve jeden bod.
+            </p>
+            <section class="env proof">
+                <p>
+                    Zoberme si postupnosť <math><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow></math>, kde <math><msub><mi>x</mi><mi>k</mi></msub></math> je ľubovoľný bod z <math><msub><mi>U</mi><mi>k</mi></msub></math>. Potom <math><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow></math> je cauchyovská a jej limita je vo všetkých tých množinách. Ak by boli dva také body <math><mrow><mi>x</mi><mo separator="true">,</mo></mrow><mrow><mi>y</mi></mrow></math>, potom <math><mrow><mi>diam</mi><mo>⁡</mo><mspace width="0.1667em"></mspace></mrow><mrow><msub><mi>U</mi><mi>k</mi></msub><mo>≥</mo></mrow><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo form="postfix" stretchy="false">)</mo></mrow></math>, čo je spor s tým že <math><mrow><msub><mi>lim</mi><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow></msub><mo>⁡</mo><mspace width="0.1667em"></mspace></mrow><mrow><mi>diam</mi><mo>⁡</mo><mspace width="0.1667em"></mspace></mrow><mrow><msub><mi>U</mi><mi>n</mi></msub><mo>=</mo></mrow><mrow><mn>0</mn></mrow></math>.
+                </p>
+            </section>
+        </section>
+        <section class="env theorem">
+            <p>
+                <span class="label">Banachova o kontrakcii</span>
+                Nech <math><mi>M</mi></math> je úplný metrický priestor a <math><mrow><mi>f</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo></mrow><mrow><mi>M</mi><mo>→</mo></mrow><mrow><mi>M</mi></mrow></math> je kontrakcia, teda existuje <math><mrow><mi>γ</mi><mo>&lt;</mo></mrow><mrow><mn>1</mn></mrow></math>, že pre každé <math><mrow><mi>x</mi><mo separator="true">,</mo></mrow><mrow><mi>y</mi><mo>∈</mo></mrow><mrow><mi>M</mi></mrow></math> platí <math display="block" class="tml-display" style="display:block math;"><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>y</mi><mo form="postfix" stretchy="false">)</mo><mo>≤</mo><mi>γ</mi><mo>⋅</mo><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo form="postfix" stretchy="false">)</mo><mi>.</mi></mrow></math> Potom <math><mi>f</mi></math> má práve jeden pevný bod.
+            </p>
+            <section class="env proof">
+                <p>Nech <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>∈</mo></mrow><mrow><mi>M</mi></mrow></math> je ľubovoľné a <math><mrow><msub><mi>x</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo></mrow><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>n</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow></math> pre všetky <math><mi>n</mi></math>. Potom <math><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>+</mo><mn>2</mn></mrow></msub><mo form="postfix" stretchy="false">)</mo><mo>≤</mo></mrow><mrow><mi>γ</mi><mo>⋅</mo></mrow><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>n</mi></msub><mo separator="true">,</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo form="postfix" stretchy="false">)</mo></mrow></math>, takže súčet vzdialenosti od <math><msub><mi>x</mi><mi>n</mi></msub></math> po ľubovoľný ďalší člen vieme zhora odhadnúť súčtom geometrickej postupnosti <math><mrow><msup><mi>γ</mi><mi>k</mi></msup><mo>⋅</mo></mrow><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>n</mi></msub><mo separator="true">,</mo><msub><mi>x</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo form="postfix" stretchy="false">)</mo></mrow></math>. Tým pádom je postupnosť <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math> cauchyovská, takže má nejakú limitu <math><mi>x</mi></math>, pre ktorú platí <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo></mrow><mrow><mi>x</mi></mrow></math>. Ak by boli dva pevné body, tak ich vzdialenosť sa po zobrazení <math><mi>f</mi></math> nezmení, čo je spor s tým že <math><mi>f</mi></math> je kontrakcia.</p>
+            </section>
+        </section>
+        <section class="env corollary">
+            <p>
+                <span class="label">Picardova veta</span>
+                <span class="todo"></span>
+            </p>
+        </section>
+        <section class="env theorem">
+            <p>
+                <span class="label">priestor spojitých funkcií</span>
+                Nech <math><mi>F</mi></math> je metrický priestor spojitých funkcií z <math><mrow><mi>M</mi><mo>→</mo></mrow><mrow><mi>ℝ</mi></mrow></math> so suprémovou metrikou. Potom <math><mi>F</mi></math> je úplný.
+            </p>
+            <section class="env proof">
+                <p>
+                    Nech <math><msub><mi>f</mi><mi>k</mi></msub></math> je nejaká cauchyovská postupnosť funkcií. Potom aj pre každý bod <math><mrow><mi>x</mi><mo>∈</mo></mrow><mrow><mi>M</mi></mrow></math> je postupnosť <math><mrow><msub><mi>f</mi><mi>k</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow></math> cauchyovská, takže má nejakú limitu <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow></math>. Treba teda ešte ukázať, že <math><mi>f</mi></math> je spojitá.
+                </p>
+                <p>
+                    Majme <math><mrow><mi>ϵ</mi><mo>&gt;</mo></mrow><mrow><mn>0</mn></mrow></math>, potom chceme nájsť <math><mrow><mi>δ</mi><mo>&gt;</mo></mrow><mrow><mn>0</mn></mrow></math>, že <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>δ</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>⊆</mo></mrow><mrow><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><mi>ϵ</mi><mo form="postfix" stretchy="false">)</mo></mrow></math>. Zvoľme <math><mi>n</mi></math> a <math><mi>δ</mi></math> také, že <math><mrow><msub><mi>f</mi><mi>n</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>δ</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>⊆</mo></mrow><mrow><mi>B</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>f</mi><mi>n</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><mi>ϵ</mi><mi>/</mi><mn>3</mn><mo form="postfix" stretchy="false">)</mo></mrow></math> a <math><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>f</mi><mo separator="true">,</mo><msub><mi>f</mi><mi>n</mi></msub><mo form="postfix" stretchy="false">)</mo><mo>≤</mo></mrow><mrow><mi>ϵ</mi><mi>/</mi><mn>3</mn></mrow></math>. Potom pre každé <math><mrow><mover><mi>x</mi><mo stretchy="false" style="math-style:normal;math-depth:0;">~</mo></mover><mo>∈</mo></mrow><mrow><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>δ</mi><mo form="postfix" stretchy="false">)</mo></mrow></math> platí <math display="block" class="tml-display" style="display:block math;"><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mover><mi>x</mi><mo stretchy="false" style="math-style:normal;math-depth:0;">~</mo></mover><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>≤</mo><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><msub><mi>f</mi><mi>n</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>+</mo><mi>d</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>f</mi><mi>n</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><msub><mi>f</mi><mi>n</mi></msub><mo form="prefix" stretchy="false">(</mo><mover><mi>x</mi><mo stretchy="false" style="math-style:normal;math-depth:0;">~</mo></mover><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>+</mo><mi>d</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>f</mi><mi>n</mi></msub><mo form="prefix" stretchy="false">(</mo><mover><mi>x</mi><mo stretchy="false" style="math-style:normal;math-depth:0;">~</mo></mover><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mover><mi>x</mi><mo stretchy="false" style="math-style:normal;math-depth:0;">~</mo></mover><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>≤</mo><mi>ϵ</mi><mi>.</mi></mrow></math>
+                </p>
+            </section>
+        </section>
+
+        <h2>Kompaktné množiny</h2>
+        <section class="env definition">
+            <p>
+                Množina <math><mi>U</mi></math> je <i>kompaktná</i>, pokiaľ z každej postupnosti v <math><mi>U</mi></math> vieme vybrať konvergentnú podpostupnosť.
+            </p>
+        </section>
+        <section class="env claim">
+            <p>
+                Uzavretá podmnožina kompaktnej množiny je kompaktná.
+            </p>
+            <section class="env proof">
+                <p>Nech <math><mi>U</mi></math> je kompaktná množina a <math><mi>V</mi></math> jej podmnožina. Potom z každej postupnosti vo <math><mi>V</mi></math> vieme vybrať podpostupnosť <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math>, ktorá konverguje k niečomu z <math><mi>U</mi></math>, ale keďže <math><mi>V</mi></math> je uzavretá, tak <math><mrow><msub><mi>lim</mi><mrow><mi>n</mi><mo>→</mo><mi>∞</mi></mrow></msub><mo>⁡</mo><mspace width="0.1667em"></mspace></mrow><mrow><msub><mi>x</mi><mi>n</mi></msub><mo>∈</mo></mrow><mrow><mi>V</mi></mrow></math>.</p>
+            </section>
+        </section>
+        <section class="env theorem">
+            <p>
+                <span class="label">nabývání extrémů</span>
+                Nech <math><mi>U</mi></math> je kompaktná množina a <math><mrow><mi>f</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo></mrow><mrow><mi>U</mi><mo>→</mo></mrow><mrow><mi>ℝ</mi></mrow></math> je spojité zobrazenie. Potom <math><mi>f</mi></math> na <math><mi>U</mi></math> nadobúda maximum a minimum.
+            </p>
+            <section class="env proof">
+                <p>
+                    Búno to stačí dokázať pre maximum.
+                </p>
+                <p>
+                    Nech <math><mi>y</mi></math> je suprémum <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>U</mi><mo form="postfix" stretchy="false">)</mo></mrow></math>, potom existuje postupnosť <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math> taká, že <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo></mrow><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo></mrow><mrow><mo>⋯</mo></mrow><mrow><mo>→</mo></mrow><mrow><mi>y</mi></mrow></math>. Keďže <math><mi>U</mi></math> je kompaktná, vieme z <math><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow></math> vybrať konvergentnú podpostupnosť s limitou <math><mi>x</mi></math>. Zo spojitosti potom <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo></mrow><mrow><mi>y</mi></mrow></math>, teda je to maximum.
+                </p>
+            </section>
+        </section>
+        <section class="env theorem">
+            <p>
+                <span class="label">spojitý obraz kompaktu</span>
+                Nech <math><mi>M</mi></math> je kompaktná množina, <math><mi>N</mi></math> je metrický priestor a <math><mrow><mi>f</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo></mrow><mrow><mi>M</mi><mo>→</mo></mrow><mrow><mi>N</mi></mrow></math> je spojité zobrazenie. Potom <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>M</mi><mo form="postfix" stretchy="false">)</mo></mrow></math> je kompaktná.
+            </p>
+            <section class="env proof">
+                <p>
+                    Nech <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math> je postupnosť v <math><mi>M</mi></math> a nech z nej vieme vybrať podpostupnosť s limitou <math><mi>x</mi></math>. Potom obraz tejto konvergentnej podpostupnosti bude mať zo spojitosti limitu <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow></math>.
+                </p>
+            </section>
+        </section>
+        <section class="env theorem">
+            <p>
+                <span class="label">rovnomerná spojitosť na kompakte</span>
+                Nech <math><mi>U</mi></math> je kompaktná množina, <math><mi>N</mi></math> je metrický priestor a <math><mrow><mi>f</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo></mrow><mrow><mi>U</mi><mo>→</mo></mrow><mrow><mi>N</mi></mrow></math> je spojitá. Potom <math><mi>f</mi></math> je aj rovnomerne spojitá.
+            </p>
+            <section class="env proof">
+                <p>
+                    Pre spor nech pre nejaké <math><mi>ϵ</mi></math> nefunguje žiadne <math><mi>δ</mi></math>, teda pre každé <math><mi>δ</mi></math> existuje nejaké <math><mrow><mi>x</mi><mo>∈</mo></mrow><mrow><mi>U</mi></mrow></math>, ktoré to kazí. Zoberme si postupnosť <math><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>δ</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo><mo>→</mo></mrow><mrow><mn>0</mn></mrow></math> a ku každému <math><msub><mi>x</mi><mi>k</mi></msub></math>, pre ktoré toto <math><msub><mi>δ</mi><mi>k</mi></msub></math> nefunguje. Z týchto <math><msub><mi>x</mi><mi>k</mi></msub></math> vieme vybrať podpostupnosť s limitou <math><mi>x</mi></math>. Majme nejaké <math><mrow><mi>δ</mi><mo>&gt;</mo></mrow><mrow><mn>0</mn></mrow></math> a vyberme k nemu <math><msub><mi>x</mi><mi>k</mi></msub></math> také, že <math><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><msub><mi>x</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo><mo>≤</mo></mrow><mrow><mi>δ</mi></mrow></math>, <math><mrow><msub><mi>δ</mi><mi>k</mi></msub><mo>≤</mo></mrow><mrow><mi>δ</mi></mrow></math> a <math><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>≤</mo></mrow><mrow><mi>ϵ</mi><mi>/</mi><mn>2</mn></mrow></math>. Potom <math><mi>x</mi></math> má na svojom <math><mrow><mn>2</mn><mi>δ</mi></mrow></math>-okolí bod, ktorého hodnota je vzdialená od <math><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow></math> o viac ako <math><mrow><mi>ϵ</mi><mi>/</mi><mn>2</mn></mrow></math> (pre ľubovoľne malé <math><mi>δ</mi></math>), takže <math><mi>f</mi></math> nie je v <math><mi>x</mi></math> spojitá, spor.
+                </p>
+            </section>
+        </section>
+        <section class="env definition">
+            <p>Množina <math><mi>U</mi></math> je <i>totálne omezená</i>, pokiaľ pre každé <math><mi>ϵ</mi></math> existuje konečná <math><mi>ϵ</mi></math>-sieť <math><mi>M</mi></math>, teda množina <math><mi>ϵ</mi></math>-okolí takých, že každý bod z <math><mi>U</mi></math> patrí do aspoň jedného tohto okolia.</p>
+        </section>
+        <section class="env theorem">
+            <p>
+                <span class="label">ekvivalentné definície kompaktnosti</span>
+                Nech <math><mi>M</mi></math> je metrický priestor. Potom tieto tvrdenia sú ekvivalentné:
+            </p>
+            <ol>
+                <li><math><mi>M</mi></math> je kompaktný,</li>
+                <li><math><mi>M</mi></math> je totálne omezený a úplný,</li>
+                <li>z každého otvoreného pokrytia <math><mi>M</mi></math> sa dá vybrať konečné podpokrytie.</li>
+            </ol>
+            <section class="env proof">
+                <p>
+                    <math><mrow><mo form="prefix" stretchy="false">(</mo><mn>2</mn><mo form="postfix" stretchy="false">)</mo><mspace width="0.2778em"></mspace><mo stretchy="false">⟹</mo><mspace width="0.2778em"></mspace></mrow><mrow><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow></math>: Nech <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math> je postupnosť v <math><mi>M</mi></math>, vyrobíme z nej konvergentnú podpostupnosť <math><mrow><msub><mi>y</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>y</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math>. Nech <math><mrow><msub><mi>y</mi><mn>1</mn></msub><mo>=</mo></mrow><mrow><msub><mi>x</mi><mn>1</mn></msub></mrow></math>. Pre <math><mrow><mi>ϵ</mi><mo>&gt;</mo></mrow><mrow><mn>0</mn></mrow></math> nájdeme konečnú <math><mi>ϵ</mi></math>-sieť <math><mi>M</mi></math>. V aspoň jednej z guličiek, ktoré tvoria sieť, je nekonečne veľa prvkov <math><msub><mi>x</mi><mi>i</mi></msub></math>. Z týchto prvkov rekurzívne vyrobíme zvyšok podpostupnosti, pričom <math><mi>ϵ</mi></math> volíme postupne tak, aby konvergovali k <math><mn>0</mn></math>.
+                </p>
+                <p>
+                    Postupnosť <math><mrow><msub><mi>y</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>y</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math> je cauchyovská, lebo pre ľubovoľne malé <math><mi>ϵ</mi></math> budú od nejakého momentu  všetky prvky tej postupnosti v jednej guličke z tej <math><mi>ϵ</mi></math>-siete. Keďže <math><mi>M</mi></math> je úplný, tak <math><mrow><msub><mi>y</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>y</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math> je konvergentná.
+                </p>
+                <p>
+                    <math><mrow><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mspace width="0.2778em"></mspace><mo stretchy="false">⟹</mo><mspace width="0.2778em"></mspace></mrow><mrow><mo form="prefix" stretchy="false">(</mo><mn>3</mn><mo form="postfix" stretchy="false">)</mo></mrow></math>:
+                </p>
+                <section class="env lemma">
+                    <p>
+                        <span class="label">Lebesgue number</span>
+                        Pre každé otvorené pokrytie <math><mi class="mathscr">𝒰</mi></math> kompaktného metrického priestoru <math><mi>M</mi></math> existuje <math><mrow><mi>δ</mi><mo>&gt;</mo></mrow><mrow><mn>0</mn></mrow></math> také, že pre každé <math><mrow><mi>x</mi><mo>∈</mo></mrow><mrow><mi>M</mi></mrow></math> je <math><mrow><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>δ</mi><mo form="postfix" stretchy="false">)</mo></mrow></math> celé v nejakom <math><mrow><mi>U</mi><mo>∈</mo></mrow><mrow><mi class="mathscr">𝒰</mi></mrow></math>.
+                    </p>
+                    <section class="env proof">
+                        <p>
+                            Pre spor majme pokrytie, kde pre každé <math><mi>δ</mi></math> existuje nejaký bod <math><msub><mi>x</mi><mi>δ</mi></msub></math>, ktorý to kazí. Zoberieme postupnosť <math><msub><mi>x</mi><mi>δ</mi></msub></math>, kde <math><mrow><mi>δ</mi><mo>→</mo></mrow><mrow><mn>0</mn></mrow></math>, z nej potom vieme vybrať podpostupnosť s nejakou limitou <math><mi>x</mi></math>. Potom <math><mi>x</mi></math> je v nejakej guličke <math><mi>B</mi></math> z pokrytia, nech je vzdialené <math><mi>ϵ</mi></math> od jej kraja. Pre dostatočne malé <math><mi>δ</mi></math> ale platí <math><mrow><mi>δ</mi><mo>&lt;</mo></mrow><mrow><mi>ϵ</mi><mi>/</mi><mn>2</mn></mrow></math> aj <math><mrow><mi>d</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>x</mi><mi>δ</mi></msub><mo separator="true">,</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>&lt;</mo></mrow><mrow><mi>ϵ</mi><mi>/</mi><mn>2</mn></mrow></math>, takže z trojuholníkovej nerovnosti je <math><mi>δ</mi></math>-okolie <math><msub><mi>x</mi><mi>δ</mi></msub></math> celé v <math><mi>B</mi></math>, spor.
+                        </p>
+                    </section>
+                </section>
+                <p>
+                    Teraz si môžeme zobrať nejakú konečnú <math><mi>δ</mi></math>-sieť. Každá z tých guličiek je celá vnútri nejakého jedného <math><mrow><mi>U</mi><mo>∈</mo></mrow><mrow><mi class="mathscr">𝒰</mi></mrow></math>, takže tieto <math><mi>U</mi></math>-čka tvoria konečné podpokrytie.
+                </p>
+                <p>
+                    <math><mrow><mo form="prefix" stretchy="false">(</mo><mn>3</mn><mo form="postfix" stretchy="false">)</mo><mspace width="0.2778em"></mspace><mo stretchy="false">⟹</mo><mspace width="0.2778em"></mspace></mrow><mrow><mo form="prefix" stretchy="false">(</mo><mn>2</mn><mo form="postfix" stretchy="false">)</mo></mrow></math>: zoberieme si okolo každého bodu <math><mi>ϵ</mi></math>-okolie, tieto okolia tvoria pokrytie. Z nich si vieme vybrať konečné podpokrytie, a to je konečná <math><mi>ϵ</mi></math>-sieť. Ak by nebol úplný, tak nech <math><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo></mrow><mrow><mo>…</mo></mrow></math> je nejaká nekonvergentná cauchyovská postupnosť. Potom pre každý bod <math><mrow><mi>y</mi><mo>∈</mo></mrow><mrow><mi>M</mi></mrow></math> existuje <math><mi>ϵ</mi></math> také, že <math><mrow><mi>B</mi><mo form="prefix" stretchy="false">(</mo><mi>y</mi><mo separator="true">,</mo><mi>ϵ</mi><mo form="postfix" stretchy="false">)</mo></mrow></math> obsahuje iba konečne veľa členov <math><msub><mi>x</mi><mi>k</mi></msub></math>, inak by <math><mrow><msub><mi>x</mi><mi>k</mi></msub><mo>→</mo></mrow><mrow><mi>y</mi></mrow></math>. Tieto okolia tvoria otvorené pokrytie, ale nemôžeme z neho vybrať konečné podpokrytie, lebo pokryjeme iba konečne veľa členov <math><msub><mi>x</mi><mi>k</mi></msub></math>.
+                </p>
+            </section>
+        </section>
+        <p>
+            <span class="todo">Arzelà-Ascoli</span>
+        </p>
+    </body>
+</html>

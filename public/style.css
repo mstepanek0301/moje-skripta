@@ -1,0 +1,118 @@
+@import url('https://fonts.cdnfonts.com/css/libertinus-serif');
+@import url('https://fonts.cdnfonts.com/css/libertinus-math');
+
+:root {
+    display: flex;
+    justify-content: center;
+
+    font-family: "Libertinus Serif", serif;
+    color-scheme: light dark;
+}
+
+math {
+    font-family: "Libertinus Math", math;
+
+    &[display="block"] {
+        margin-block: 1em;
+    }
+}
+
+body {
+    max-width: 70ch;
+    margin-inline: 1em;
+    margin-block: 2em;
+}
+
+p {
+    hyphens: auto;
+    text-align: justify;
+
+    margin: 0;
+    text-indent: 1.5em;
+}
+
+:is(h1, h2, h3, h4, h5) {
+    margin-block: 1.5em 0.5em;
+    clear: both;
+}
+
+:is(h1, h2, h3, h4, h5, h6) ~ p {
+    text-indent: 0;
+}
+
+section.env {
+    margin-block: 1em;
+    clear: both;
+}
+
+section.env p:first-child {
+    text-indent: 0;
+    &::before {
+        content: var(--p-title) ". ";
+        font-weight: bold;
+    }
+}
+
+span.label {
+    &::before {
+        content: " (";
+    }
+    &::after {
+        content: ") "
+    }
+}
+
+@counter-style brackets {
+    system: extends decimal;
+    prefix: "(";
+    suffix: ") "
+}
+
+section.env ol {
+    list-style: brackets;
+}
+
+section.definition {
+    --p-title: "Definícia";
+}
+
+section.claim {
+    --p-title: "Tvrdenie";
+}
+
+section.theorem {
+    --p-title: "Veta";
+}
+
+section.lemma {
+    --p-title: "Lemma";
+}
+
+section.corollary {
+    --p-title: "Dôsledok";
+}
+
+section.proof {
+    --p-title: "Dôkaz";
+    & > p:first-child::before {
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    & > p:last-child::after {
+        content: "□";
+        float: right;
+    }
+}
+
+section.proof section.proof > p:last-child::after {
+    content: "∎";
+}
+
+span.todo {
+    color: light-dark(darkred, lightcoral);
+    &::before {
+        content: "TODO. ";
+        font-weight: bold;
+    }
+}

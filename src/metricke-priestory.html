@@ -1,0 +1,212 @@
+---
+title: Metrické priestory
+---
+<h1>{{title}}</h1>
+<h2>Otvorené a uzavreté množiny</h2>
+<p>Nech {{#math}}M{{/math}} je metrický priestor s metrikou {{#math}}d{{/math}}.</p>
+<section class="env definition">
+    <p>
+        Množina {{#math}}U{{/math}} je <i>otvorená</i>, pokiaľ v nej má každý bod aj nejaké svoje okolie, teda pre každé {{#math}}x \in U{{/math}} existuje {{#math}}\epsilon{{/math}} také, že {{#math}}B(x, \epsilon) \subseteq M{{/math}}.
+    </p>
+    <p>
+        Množina {{#math}}U{{/math}} je <i>uzavretá</i>, pokiaľ obsahuje všetky svoje limitné body, teda pre každú postupnosť {{#math}}\seq{x} \to x{{/math}}, kde {{#math}}\seq{x} \in U{{/math}} aj {{#math}}x \in U{{/math}}.
+    </p>
+</section>
+<section class="env definition">
+    <p>
+        <i>Vnútro</i> množiny {{#math}}U{{/math}} je množina tých bodov, ktoré majú aj nejaké svoje okolie celé v {{#math}}U{{/math}}, teda také {{#math}}x \in M{{/math}}, pre ktoré existuje {{#math}}\epsilon{{/math}} také, že {{#math}}B(x, \epsilon) \subseteq U{{/math}}.
+    </p>
+    <p>
+        <i>Vonkajšok</i> množiny {{#math}}U{{/math}} je to isté, ale keď má nejaké okolie <em>mimo</em> {{#math}}M{{/math}}.
+    </p>
+    <p>
+        <i>Hranica</i> {{#math}}U{{/math}} (značíme {{#math}}\boundary U{{/math}}) sú tie body, ktoré nie sú ani vnútri, ani vonku, teda na každom okolí majú nejaké body z {{#math}}M{{/math}} aj mimo {{#math}}M{{/math}}.
+    </p>
+</section>
+<section class="env claim">
+    <p>Množina {{#math}}U{{/math}} je otvorená práve vtedy, keď neobsahuje žiadny bod svojej hranice, a uzavretá práve vtedy, keď obsahuje celú svoju hranicu.</p>
+    <section class="env proof">
+        <p>
+            Pre otvorenú množinu je to priamo z definície. Pre uzavretú: k nejakému bodu {{#math}}x \in M{{/math}} sa dá z {{#math}}U{{/math}} dokonvergovať práve vtedy, keď na ľubovoľne malom okolí {{#math}}x{{/math}} je nejaký bod z {{#math}}U{{/math}}, čo sú práve body vnútra a hranice {{#math}}U{{/math}}. Každá množina ale obsahuje svoje vnútro, stačí teda, aby obsahovala svoju hranicu.
+        </p>
+    </section>
+</section>
+<section class="env corollary">
+    <p>Množina je uzavretá práve vtedy, keď jej doplnok je otvorený.</p>
+    <section class="env proof">
+        <p>Hranica je rovnaká pre množinu aj jej doplnok.</p>
+    </section>
+</section>
+<section class="env definition">
+    <p><i>Uzáver</i> množiny {{#math}}U{{/math}} (značíme {{#math}}\overline U{{/math}}) je {{#math}}U \cup \boundary U{{/math}}.</p>
+</section>
+<section class="env claim">
+    <p>Vnútro množiny {{#math}}U{{/math}} je jej najväčšia (vzhľadom na inklúziu) otvorená podmnožina.</p>
+    <section class="env proof">
+        <p>Vnútro je z definície otvorené. Ak by mala {{#math}}V \subseteq U{{/math}} obsahovať nejaký iný bod {{#math}}x{{/math}}, musel by {{#math}}x{{/math}} byť z hranice {{#math}}U{{/math}}, ale {{#math}}x{{/math}} má na každom svojom okolí nejaký bod mimo {{#math}}U{{/math}}, a teda by {{#math}}V{{/math}} nebola otvorená.</p>
+    </section>
+</section>
+<section class="env corollary">
+    <p>
+        Uzáver množiny {{#math}}U{{/math}} je jej najmenšia uzavretá nadmnožina.
+    </p>
+</section>
+<p><span class="todo">zobrazenie je spojité práve vtedy keď vzor otvorenej je otvorená, Heineho veta</span></p>
+
+<h2>Úplné metrické priestory</h2>
+<section class="env definition">
+    <p>Metrický priestor je úplný, keď v ňom má každá cauchyovská postupnosť limitu.</p>
+</section>
+<section class="env claim">
+    <p>
+        <span class="label">zúplnenie</span>
+        Nech {{#math}}M{{/math}} je metrický priestor, potom ho vieme doplniť na {{#math}}\overline{M}{{/math}} tak, že pri tom zachováme pôvodné vzdialenosti a {{#math}}\overline{M}{{/math}} je úplný.
+    </p>
+    <section class="env proof">
+        <p>
+            Zoberme si všetky cauchyovské postupnosti v {{#math}}M{{/math}}. Dve postupnosti budú ekvivalentné, keď sú od nejakého bodu aj navzájom ľubovoľne blízko (ako BC-podmienka ale pre obe tie postupnosti). Tieto triedy ekvivalencie budú tvoriť {{#math}}M'{{/math}}.
+        </p>
+        <p>
+            Vzdialenosť postupnosti {{#math}}(x_k){{/math}} a {{#math}}(y_k){{/math}} definujeme ako {{#math}}\lim_{n \to \infty} d(x_n, y_n){{/math}}. Keďže tie postupnosti sú cauchyovské, tak to konverguje a je to rovnaké pre ľubovoľné postupnosti z tých ekvivalenčných tried. To, že je to legit metrika, vyplýva z toho, že je to limita tej pôvodnej metriky, ktorá je tiež legit.
+        </p>
+        <p>
+            Pôvodné body z {{#math}}M{{/math}} budú reprezentované konštantnými postupnosťami, čo zachováva pôvodné vzdialenosti.
+        </p>
+    </section>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">Cantorova o vnorených množinách</span>
+        Nech {{#math}}M{{/math}} je úplný metrický priestor, {{#math}}U_1 \supseteq U_2 \supseteq \dots{{/math}} sú uzavreté množiny z {{#math}}M{{/math}} a {{#math}}\lim_{n \to \infty} \operatorname{diam} U_n = 0{{/math}}. Potom {{#math}}\bigcap U_n{{/math}} má práve jeden bod.
+    </p>
+    <section class="env proof">
+        <p>
+            Zoberme si postupnosť {{#math}}(x_k){{/math}}, kde {{#math}}x_k{{/math}} je ľubovoľný bod z {{#math}}U_k{{/math}}. Potom {{#math}}(x_k){{/math}} je cauchyovská a jej limita je vo všetkých tých množinách. Ak by boli dva také body {{#math}}x, y{{/math}}, potom {{#math}}\operatorname{diam} U_k \geq d(x, y){{/math}}, čo je spor s tým že {{#math}}\lim_{n \to \infty} \operatorname{diam} U_n = 0{{/math}}.
+        </p>
+    </section>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">Banachova o kontrakcii</span>
+        Nech {{#math}}M{{/math}} je úplný metrický priestor a {{#math}}f : M \to M{{/math}} je kontrakcia, teda existuje {{#math}}\gamma \lt 1{{/math}}, že pre každé {{#math}}x, y \in M{{/math}} platí {{#displayMath}}d(f(x), f(y) \leq \gamma \cdot d(x, y).{{/displayMath}} Potom {{#math}}f{{/math}} má práve jeden pevný bod.
+    </p>
+    <section class="env proof">
+        <p>Nech {{#math}}x_1 \in M{{/math}} je ľubovoľné a {{#math}}x_{n + 1} = f(x_n){{/math}} pre všetky {{#math}}n{{/math}}. Potom {{#math}}d(x_{n+1}, x_{n+2}) \leq \gamma \cdot d(x_n, x_{n+1}){{/math}}, takže súčet vzdialenosti od {{#math}}x_n{{/math}} po ľubovoľný ďalší člen vieme zhora odhadnúť súčtom geometrickej postupnosti {{#math}}\gamma^k \cdot d(x_n, x_{n+1}){{/math}}. Tým pádom je postupnosť {{#math}}\seq{x}{{/math}} cauchyovská, takže má nejakú limitu {{#math}}x{{/math}}, pre ktorú platí {{#math}}f(x) = x{{/math}}. Ak by boli dva pevné body, tak ich vzdialenosť sa po zobrazení {{#math}}f{{/math}} nezmení, čo je spor s tým že {{#math}}f{{/math}} je kontrakcia.</p>
+    </section>
+</section>
+<section class="env corollary">
+    <p>
+        <span class="label">Picardova veta</span>
+        <span class="todo"></span>
+    </p>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">priestor spojitých funkcií</span>
+        Nech {{#math}}F{{/math}} je metrický priestor spojitých funkcií z {{#math}}M \to \R{{/math}} so suprémovou metrikou. Potom {{#math}}F{{/math}} je úplný.
+    </p>
+    <section class="env proof">
+        <p>
+            Nech {{#math}}f_k{{/math}} je nejaká cauchyovská postupnosť funkcií. Potom aj pre každý bod {{#math}}x \in M{{/math}} je postupnosť {{#math}}f_k(x){{/math}} cauchyovská, takže má nejakú limitu {{#math}}f(x){{/math}}. Treba teda ešte ukázať, že {{#math}}f{{/math}} je spojitá.
+        </p>
+        <p>
+            Majme {{#math}}\epsilon \gt 0{{/math}}, potom chceme nájsť {{#math}}\delta \gt 0{{/math}}, že {{#math}}f(B(x, \delta)) \subseteq B(f(x), \epsilon){{/math}}. Zvoľme {{#math}}n{{/math}} a {{#math}}\delta{{/math}} také, že {{#math}}f_n(B(x, \delta)) \subseteq B(f_n(x), \epsilon / 3){{/math}} a {{#math}}d(f, f_n) \leq \epsilon/3{{/math}}. Potom pre každé {{#math}}\tilde x \in B(x, \delta){{/math}} platí {{#displayMath}}d(f(x), f(\tilde x)) \leq d(f(x), f_n(x)) + d(f_n(x), f_n(\tilde x)) + d(f_n(\tilde x), f(\tilde x)) \leq \epsilon.{{/displayMath}}
+        </p>
+    </section>
+</section>
+
+<h2>Kompaktné množiny</h2>
+<section class="env definition">
+    <p>
+        Množina {{#math}}U{{/math}} je <i>kompaktná</i>, pokiaľ z každej postupnosti v {{#math}}U{{/math}} vieme vybrať konvergentnú podpostupnosť.
+    </p>
+</section>
+<section class="env claim">
+    <p>
+        Uzavretá podmnožina kompaktnej množiny je kompaktná.
+    </p>
+    <section class="env proof">
+        <p>Nech {{#math}}U{{/math}} je kompaktná množina a {{#math}}V{{/math}} jej podmnožina. Potom z každej postupnosti vo {{#math}}V{{/math}} vieme vybrať podpostupnosť {{#math}}\seq{x}{{/math}}, ktorá konverguje k niečomu z {{#math}}U{{/math}}, ale keďže {{#math}}V{{/math}} je uzavretá, tak {{#math}}\lim_{n \to \infty} x_n \in V{{/math}}.</p>
+    </section>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">nabývání extrémů</span>
+        Nech {{#math}}U{{/math}} je kompaktná množina a {{#math}}f : U \to \R{{/math}} je spojité zobrazenie. Potom {{#math}}f{{/math}} na {{#math}}U{{/math}} nadobúda maximum a minimum.
+    </p>
+    <section class="env proof">
+        <p>
+            Búno to stačí dokázať pre maximum.
+        </p>
+        <p>
+            Nech {{#math}}y{{/math}} je suprémum {{#math}}f(U){{/math}}, potom existuje postupnosť {{#math}}\seq{x}{{/math}} taká, že {{#math}}f(x_1), f(x_2), \dots \to y{{/math}}. Keďže {{#math}}U{{/math}} je kompaktná, vieme z {{#math}}(x_k){{/math}} vybrať konvergentnú podpostupnosť s limitou {{#math}}x{{/math}}. Zo spojitosti potom {{#math}}f(x) = y{{/math}}, teda je to maximum.
+        </p>
+    </section>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">spojitý obraz kompaktu</span>
+        Nech {{#math}}M{{/math}} je kompaktná množina, {{#math}}N{{/math}} je metrický priestor a {{#math}}f : M \to N{{/math}} je spojité zobrazenie. Potom {{#math}}f(M){{/math}} je kompaktná.
+    </p>
+    <section class="env proof">
+        <p>
+            Nech {{#math}}\seq{x}{{/math}} je postupnosť v {{#math}}M{{/math}} a nech z nej vieme vybrať podpostupnosť s limitou {{#math}}x{{/math}}. Potom obraz tejto konvergentnej podpostupnosti bude mať zo spojitosti limitu {{#math}}f(x){{/math}}.
+        </p>
+    </section>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">rovnomerná spojitosť na kompakte</span>
+        Nech {{#math}}U{{/math}} je kompaktná množina, {{#math}}N{{/math}} je metrický priestor a {{#math}}f : U \to N{{/math}} je spojitá. Potom {{#math}}f{{/math}} je aj rovnomerne spojitá.
+    </p>
+    <section class="env proof">
+        <p>
+            Pre spor nech pre nejaké {{#math}}\epsilon{{/math}} nefunguje žiadne {{#math}}\delta{{/math}}, teda pre každé {{#math}}\delta{{/math}} existuje nejaké {{#math}}x \in U{{/math}}, ktoré to kazí. Zoberme si postupnosť {{#math}}(\delta_k) \to 0{{/math}} a ku každému {{#math}}x_k{{/math}}, pre ktoré toto {{#math}}\delta_k{{/math}} nefunguje. Z týchto {{#math}}x_k{{/math}} vieme vybrať podpostupnosť s limitou {{#math}}x{{/math}}. Majme nejaké {{#math}}\delta \gt 0{{/math}} a vyberme k nemu {{#math}}x_k{{/math}} také, že {{#math}}d(x, x_k) \leq \delta{{/math}}, {{#math}}\delta_k \leq \delta{{/math}} a {{#math}}d(f(x), f(x_k)) \leq \epsilon / 2{{/math}}. Potom {{#math}}x{{/math}} má na svojom {{#math}}2\delta{{/math}}-okolí bod, ktorého hodnota je vzdialená od {{#math}}f(x){{/math}} o viac ako {{#math}}\epsilon / 2{{/math}} (pre ľubovoľne malé {{#math}}\delta{{/math}}), takže {{#math}}f{{/math}} nie je v {{#math}}x{{/math}} spojitá, spor.
+        </p>
+    </section>
+</section>
+<section class="env definition">
+    <p>Množina {{#math}}U{{/math}} je <i>totálne omezená</i>, pokiaľ pre každé {{#math}}\epsilon{{/math}} existuje konečná {{#math}}\epsilon{{/math}}-sieť {{#math}}M{{/math}}, teda množina {{#math}}\epsilon{{/math}}-okolí takých, že každý bod z {{#math}}U{{/math}} patrí do aspoň jedného tohto okolia.</p>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">ekvivalentné definície kompaktnosti</span>
+        Nech {{#math}}M{{/math}} je metrický priestor. Potom tieto tvrdenia sú ekvivalentné:
+    </p>
+    <ol>
+        <li>{{#math}}M{{/math}} je kompaktný,</li>
+        <li>{{#math}}M{{/math}} je totálne omezený a úplný,</li>
+        <li>z každého otvoreného pokrytia {{#math}}M{{/math}} sa dá vybrať konečné podpokrytie.</li>
+    </ol>
+    <section class="env proof">
+        <p>
+            {{#math}}(2) \implies (1){{/math}}: Nech {{#math}}\seq{x}{{/math}} je postupnosť v {{#math}}M{{/math}}, vyrobíme z nej konvergentnú podpostupnosť {{#math}}\seq{y}{{/math}}. Nech {{#math}}y_1 = x_1{{/math}}. Pre {{#math}}\epsilon \gt 0{{/math}} nájdeme konečnú {{#math}}\epsilon{{/math}}-sieť {{#math}}M{{/math}}. V aspoň jednej z guličiek, ktoré tvoria sieť, je nekonečne veľa prvkov {{#math}}x_i{{/math}}. Z týchto prvkov rekurzívne vyrobíme zvyšok podpostupnosti, pričom {{#math}}\epsilon{{/math}} volíme postupne tak, aby konvergovali k {{#math}}0{{/math}}.
+        </p>
+        <p>
+            Postupnosť {{#math}}\seq{y}{{/math}} je cauchyovská, lebo pre ľubovoľne malé {{#math}}\epsilon{{/math}} budú od nejakého momentu  všetky prvky tej postupnosti v jednej guličke z tej {{#math}}\epsilon{{/math}}-siete. Keďže {{#math}}M{{/math}} je úplný, tak {{#math}}\seq{y}{{/math}} je konvergentná.
+        </p>
+        <p>
+            {{#math}}(1) \implies (3){{/math}}:
+        </p>
+        <section class="env lemma">
+            <p>
+                <span class="label">Lebesgue number</span>
+                Pre každé otvorené pokrytie {{#math}}\mathscr{U}{{/math}} kompaktného metrického priestoru {{#math}}M{{/math}} existuje {{#math}}\delta \gt 0{{/math}} také, že pre každé {{#math}}x \in M{{/math}} je {{#math}}B(x, \delta){{/math}} celé v nejakom {{#math}}U \in \mathscr{U}{{/math}}.
+            </p>
+            <section class="env proof">
+                <p>
+                    Pre spor majme pokrytie, kde pre každé {{#math}}\delta{{/math}} existuje nejaký bod {{#math}}x_\delta{{/math}}, ktorý to kazí. Zoberieme postupnosť {{#math}}x_\delta{{/math}}, kde {{#math}}\delta \to 0{{/math}}, z nej potom vieme vybrať podpostupnosť s nejakou limitou {{#math}}x{{/math}}. Potom {{#math}}x{{/math}} je v nejakej guličke {{#math}}B{{/math}} z pokrytia, nech je vzdialené {{#math}}\epsilon{{/math}} od jej kraja. Pre dostatočne malé {{#math}}\delta{{/math}} ale platí {{#math}}\delta \lt \epsilon / 2{{/math}} aj {{#math}}d(x_\delta, x) \lt \epsilon / 2{{/math}}, takže z trojuholníkovej nerovnosti je {{#math}}\delta{{/math}}-okolie {{#math}}x_\delta{{/math}} celé v {{#math}}B{{/math}}, spor.
+                </p>
+            </section>
+        </section>
+        <p>
+            Teraz si môžeme zobrať nejakú konečnú {{#math}}\delta{{/math}}-sieť. Každá z tých guličiek je celá vnútri nejakého jedného {{#math}}U \in \mathscr{U}{{/math}}, takže tieto {{#math}}U{{/math}}-čka tvoria konečné podpokrytie.
+        </p>
+        <p>
+            {{#math}}(3) \implies (2){{/math}}: zoberieme si okolo každého bodu {{#math}}\epsilon{{/math}}-okolie, tieto okolia tvoria pokrytie. Z nich si vieme vybrať konečné podpokrytie, a to je konečná {{#math}}\epsilon{{/math}}-sieť. Ak by nebol úplný, tak nech {{#math}}\seq{x}{{/math}} je nejaká nekonvergentná cauchyovská postupnosť. Potom pre každý bod {{#math}}y \in M{{/math}} existuje {{#math}}\epsilon{{/math}} také, že {{#math}}B(y, \epsilon){{/math}} obsahuje iba konečne veľa členov {{#math}}x_k{{/math}}, inak by {{#math}}x_k \to y{{/math}}. Tieto okolia tvoria otvorené pokrytie, ale nemôžeme z neho vybrať konečné podpokrytie, lebo pokryjeme iba konečne veľa členov {{#math}}x_k{{/math}}.
+        </p>
+    </section>
+</section>
+<p>
+    <span class="todo">Arzelà-Ascoli</span>
+</p>
