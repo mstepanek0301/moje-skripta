@@ -9,18 +9,22 @@
     color-scheme: light dark;
 }
 
+body {
+    --body-margin: 1em;
+    max-width: 70ch;
+    margin-inline: var(--body-margin);
+    margin-block: 2em;
+}
+
 math {
     font-family: "Libertinus Math", math;
 
     &[display="block"] {
         margin-block: 1em;
+        max-width: calc(100vw - 2 * var(--body-margin));
+        overflow-x: auto;
+        overflow-y: clip;
     }
-}
-
-body {
-    max-width: 70ch;
-    margin-inline: 1em;
-    margin-block: 2em;
 }
 
 p {
