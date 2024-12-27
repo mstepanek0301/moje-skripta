@@ -51,7 +51,31 @@ title: Metrické priestory
         Uzáver množiny {{#math}}U{{/math}} je jej najmenšia uzavretá nadmnožina.
     </p>
 </section>
-<p><span class="todo">zobrazenie je spojité práve vtedy keď vzor otvorenej je otvorená, Heineho veta</span></p>
+<section class="env claim">
+    <p>Zobrazenie medzi metrickými priestormi je spojité práve vtedy, keď vzor každej otvorenej množiny je otvorená množina.</p>
+    <section class="env proof">
+        <p>
+            Nech {{#math}}f : M \to N{{/math}} je spojité zobrazenie medzi metrickými priestormi.
+        </p>
+        <p>
+            ({{#math}}\Rightarrow{{/math}}): nech {{#math}}U \subseteq N{{/math}} je otvorená množina a {{#math}}x \in f^{-1}(U){{/math}}. Potom existuje {{#math}}\epsilon{{/math}} také, že {{#math}}B(f(x), \epsilon) \subseteq U{{/math}} a také {{#math}}\delta{{/math}}, že {{#math}}f(B(x, \delta)) \subseteq B(f(x), \epsilon) \subseteq U{{/math}}, teda {{#math}}x{{/math}} má okolo seba vo vzore aj nejaké {{#math}}\delta{{/math}}-okolie, takže vzor je otvorený.
+        </p>
+        <p>
+            ({{#math}}\Leftarrow{{/math}}): {{#math}}\epsilon{{/math}}-okolie {{#math}}f(x){{/math}} je otvorené, takže jeho vzor je tiež otvorený a teda obsahuje nejaké {{#math}}\delta{{/math}}-okolie bodu {{#math}}x{{/math}}.
+        </p>
+    </section>
+</section>
+<section class="env theorem">
+    <p>
+        <span class="label">Heine</span>
+        Nech {{#math}}f : M \to N{{/math}} je zobrazenie medzi metrickými priestormi, {{#math}}a \in M{{/math}} a {{#math}}b \in N{{/math}}. Potom {{#math}}\lim_{x \to a} f(x) = b{{/math}} práve vtedy, keď pre ľubovoľnú postupnosť {{#math}}\seq{x} \to a{{/math}} platí {{#math}}\lim_{n \to \infty} f(x_n) = b{{/math}}.
+    </p>
+    <section class="env proof">
+        <p>
+            ({{#math}}\Rightarrow{{/math}}) je zrejmé. ({{#math}}\Leftarrow{{/math}}): nech {{#math}}\lim_{x \to a} f(x) \neq b{{/math}}. Potom existuje {{#math}}\epsilon{{/math}}, že pre každé {{#math}}\delta{{/math}}-okolie {{#math}}a{{/math}} je nejaký bod {{#math}}x_\delta{{/math}} mimo {{#math}}\epsilon{{/math}}-okolia {{#math}}b{{/math}}. Zoberme si teda postupnosť takýchto {{#math}}x_\delta{{/math}} pre {{#math}}\delta \to 0{{/math}}, pre ňu nemôže platiť, že konverguje k {{#math}}b{{/math}}.
+        </p>
+    </section>
+</section>
 
 <h2>Úplné metrické priestory</h2>
 <section class="env definition">
@@ -97,8 +121,14 @@ title: Metrické priestory
 <section class="env corollary">
     <p>
         <span class="label">Picardova veta</span>
-        <span class="todo"></span>
+        Nech {{#math}}I{{/math}} a {{#math}}J{{/math}} sú otvorené intervaly v {{#math}}\R{{/math}} a {{#math}}f(x, y) : I \times J \to \R{{/math}} je spojitá v {{#math}}x{{/math}} a lokálne lipschitzovská v {{#math}}y{{/math}}. Potom rovnica {{#math}}y'(x) = f(x, y(x)){{/math}} s počiatočnou podmienkou {{#math}}y(x_0) = y_0{{/math}} má na nejakom {{#math}}\delta{{/math}}-okolí {{#math}}x_0{{/math}} práve jedno riešenie.
     </p>
+    <section class="env proof">
+        <p>
+            {{#math}}y{{/math}} je riešenie práve vtedy, keď platí {{#displayMath}}y(x) = x_0 + \int_{x_0}^{x} f(t, y(t))\d t,{{/displayMath}} teda keď {{#math}}y{{/math}} je pevný bod zobrazenia, ktoré zobrazuje ľavú stranu na pravú.
+            <span class="todo">dokázať, že to zobrazenie zobrazuje spojité funkcie na spojité funkcie a je to kontrakcia, ukázať jednoznačnosť. Všetko je to také otravné a nie moc zaujímavé, dúfam že sa to vyškrtne</span>
+        </p>
+    </section>
 </section>
 <section class="env theorem">
     <p>
@@ -207,6 +237,26 @@ title: Metrické priestory
         </p>
     </section>
 </section>
-<p>
-    <span class="todo">Arzelà-Ascoli</span>
-</p>
+<section class="env theorem">
+    <p>
+        <span class="label">Arzelà-Ascoli</span>
+        Nech {{#math}}U{{/math}} je uzavretý interval v {{#math}}\R{{/math}} a {{#math}}F \subseteq C(U){{/math}}. Potom {{#math}}\overline{F}{{/math}} je kompaktná práve vtedy, keď sú funkcie z {{#math}}F{{/math}} omezené a rovnomerne spojité s rovnakou konštantou.
+    </p>
+    <section class="env proof">
+        <p>({{#math}}\Rightarrow{{/math}}): {{#math}}U{{/math}} je kompaktná množina, takže každá funkcia z {{#math}}F{{/math}} sama o sebe je omezená aj rovnomerne spojitá. Ak nie sú omezené rovnakou konštantou, tak pre každé {{#math}}k{{/math}} existuje nejaké {{#math}}f_k \in F{{/math}}, ktoré nadobúda hodnotu viac ako {{#math}}k{{/math}}. Zoberme si postupnosť takýchto {{#math}}f_k{{/math}} pre {{#math}}k \to \infty{{/math}}. Žiadna podpostupnosť {{#math}}(f_k){{/math}} nemôže byť konvergentná, lebo ľubovoľne ďaleko nadobúda ľubovoľne veľké hodnoty.</p>
+        <p>
+            Ak nie sú rovnomerne spojité s rovnakou konštantou, tak existuje nejaké {{#math}}\epsilon{{/math}}, že žiadne {{#math}}\delta{{/math}} nám nebude stačiť pre všetky tie funkcie. Zoberme si teda postupnosť {{#math}}f_\delta{{/math}} a {{#math}}x_\delta{{/math}} pre {{#math}}\delta \to 0{{/math}}, že pre {{#math}}f_\delta{{/math}} v bode {{#math}}x_\delta{{/math}} nestačí {{#math}}\delta{{/math}}. Z {{#math}}(x_\delta){{/math}} vyberieme konvergentnú podpostupnosť s limitou {{#math}}x{{/math}} a pre spor nech postupnosť príslušných {{#math}}f_\delta{{/math}} konverguje k {{#math}}f{{/math}}. Zafixujme {{#math}}\eta, \tilde \epsilon \gt 0{{/math}}. Potom zvoľme {{#math}}\delta{{/math}} také, že:
+        </p>
+        <ul>
+            <li>{{#math}}\delta \lt \eta / 2{{/math}},</li>
+            <li>{{#math}}d(f(x), f(y)) \lt \tilde \epsilon{{/math}} pre ľubovoľné {{#math}}y \in B(x, \eta){{/math}} (zo spojitosti {{#math}}f{{/math}}),</li>
+            <li>a {{#math}}d(f, f_\delta) \lt \tilde \epsilon{{/math}}.</li>
+        </ul>
+        <p>
+            Potom existuje {{#math}}\tilde x \in B(x_\delta, \delta) \subseteq B(x, \eta){{/math}} také, že {{#math}}d(f_\delta(x_\delta), f_\delta(\tilde x)) \gt \epsilon{{/math}}. Ale {{#math}}d(f(x), f(x_\delta)){{/math}}, {{#math}}d(f(x_\delta), f_\delta(x_\delta)){{/math}} a {{#math}}d(f_\delta(\tilde x), f(\tilde x)){{/math}} sú všetky menšie ako {{#math}}\tilde \epsilon{{/math}}, takže z trojuholníkovej nerovnosti {{#math}}d(f(x), f(\tilde x)) \gt \epsilon - 3\tilde\epsilon{{/math}}. Voľbou {{#math}}\tilde \epsilon = \epsilon / 4{{/math}} dostávame, že na ľubovoľnom {{#math}}\eta{{/math}}-okolí {{#math}}x{{/math}} je bod {{#math}}\tilde x{{/math}} taký, že {{#math}}d(f(x), f(\tilde x)) \gt \epsilon / 4{{/math}}, takže {{#math}}f{{/math}} nie je v {{#math}}x{{/math}} spojitá, spor.
+        </p>
+        <p>
+            ({{#math}}\Leftarrow{{/math}}): <span class="todo">konečná {{#math}}\epsilon{{/math}}-sieť: rozdeliť si to na {{#math}}\delta \times \epsilon{{/math}} mriežku a tam spraviť všetky možnosti</span>
+        </p>
+    </section>
+</section>
