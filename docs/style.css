@@ -114,7 +114,7 @@ section.proof section.proof > p:last-child::after {
 }
 
 span.todo {
-    color: light-dark(darkred, lightcoral);
+    color: light-dark(red, lightcoral);
     &::before {
         content: "TODO. ";
         font-weight: bold;
