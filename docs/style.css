@@ -35,13 +35,13 @@ p {
     text-indent: 1.5em;
 }
 
-:is(h1, h2, h3, h4, h5) {
+:is(h1, h2, h3, h4, h5, h6) {
     margin-block: 1.5em 0.5em;
     clear: both;
-}
 
-:is(h1, h2, h3, h4, h5, h6) ~ p {
-    text-indent: 0;
+    & ~ p {
+        text-indent: 0;
+    }
 }
 
 section.env {
