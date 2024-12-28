@@ -126,7 +126,7 @@ title: Metrické priestory
     <section class="env proof">
         <p>
             {{#math}}y{{/math}} je riešenie práve vtedy, keď platí {{#displayMath}}y(x) = x_0 + \int_{x_0}^{x} f(t, y(t))\d t,{{/displayMath}} teda keď {{#math}}y{{/math}} je pevný bod zobrazenia, ktoré zobrazuje ľavú stranu na pravú.
-            <span class="todo">dokázať, že to zobrazenie zobrazuje spojité funkcie na spojité funkcie a je to kontrakcia, ukázať jednoznačnosť. Všetko je to také otravné a nie moc zaujímavé, dúfam že sa to vyškrtne</span>
+            <span class="todo">dokázať, že to zobrazenie je kontrakcia a že riešenie je jednoznačné. Všetko je to také otravné a nie moc zaujímavé, dúfam že sa to vyškrtne</span>
         </p>
     </section>
 </section>
@@ -245,7 +245,10 @@ title: Metrické priestory
     <section class="env proof">
         <p>({{#math}}\Rightarrow{{/math}}): {{#math}}U{{/math}} je kompaktná množina, takže každá funkcia z {{#math}}F{{/math}} sama o sebe je omezená aj rovnomerne spojitá. Ak nie sú omezené rovnakou konštantou, tak pre každé {{#math}}k{{/math}} existuje nejaké {{#math}}f_k \in F{{/math}}, ktoré nadobúda hodnotu viac ako {{#math}}k{{/math}}. Zoberme si postupnosť takýchto {{#math}}f_k{{/math}} pre {{#math}}k \to \infty{{/math}}. Žiadna podpostupnosť {{#math}}(f_k){{/math}} nemôže byť konvergentná, lebo ľubovoľne ďaleko nadobúda ľubovoľne veľké hodnoty.</p>
         <p>
-            Ak nie sú rovnomerne spojité s rovnakou konštantou, tak existuje nejaké {{#math}}\epsilon{{/math}}, že žiadne {{#math}}\delta{{/math}} nám nebude stačiť pre všetky tie funkcie. Zoberme si teda postupnosť {{#math}}f_\delta{{/math}} a {{#math}}x_\delta{{/math}} pre {{#math}}\delta \to 0{{/math}}, že pre {{#math}}f_\delta{{/math}} v bode {{#math}}x_\delta{{/math}} nestačí {{#math}}\delta{{/math}}. Z {{#math}}(x_\delta){{/math}} vyberieme konvergentnú podpostupnosť s limitou {{#math}}x{{/math}} a pre spor nech postupnosť príslušných {{#math}}f_\delta{{/math}} konverguje k {{#math}}f{{/math}}. Zafixujme {{#math}}\eta, \tilde \epsilon \gt 0{{/math}}. Potom zvoľme {{#math}}\delta{{/math}} také, že:
+            Ak nie sú rovnomerne spojité s rovnakou konštantou, tak existuje nejaké {{#math}}\epsilon{{/math}}, že žiadne {{#math}}\delta{{/math}} nám nebude stačiť pre všetky tie funkcie. Zoberme si teda postupnosť {{#math}}f_\delta{{/math}} a {{#math}}x_\delta{{/math}} pre {{#math}}\delta \to 0{{/math}}, že pre {{#math}}f_\delta{{/math}} v bode {{#math}}x_\delta{{/math}} nestačí {{#math}}\delta{{/math}}. Z {{#math}}(x_\delta){{/math}} vyberieme konvergentnú podpostupnosť s limitou {{#math}}x{{/math}} a pre spor nech postupnosť príslušných {{#math}}f_\delta{{/math}} konverguje k {{#math}}f{{/math}}. Myšlienka je, že {{#math}}x_\delta \approx x{{/math}} a {{#math}}f_\delta \approx f{{/math}}, takže {{#math}}f{{/math}} má na ľubovoľnom {{#math}}\eta{{/math}}-okolí {{#math}}x{{/math}} nejakú hodnotu mimo {{#math}}\epsilon{{/math}}-okolia {{#math}}f(x){{/math}} a teda nemôže byť spojitá. To sú ale len aproximácie, preto treba spraviť nejaké odhady.
+        </p>
+        <p>
+            Zafixujme {{#math}}\eta, \tilde \epsilon \gt 0{{/math}}. Potom zvoľme {{#math}}\delta{{/math}} také, že:
         </p>
         <ul>
             <li>{{#math}}\delta \lt \eta / 2{{/math}},</li>
@@ -256,7 +259,19 @@ title: Metrické priestory
             Potom existuje {{#math}}\tilde x \in B(x_\delta, \delta) \subseteq B(x, \eta){{/math}} také, že {{#math}}d(f_\delta(x_\delta), f_\delta(\tilde x)) \gt \epsilon{{/math}}. Ale {{#math}}d(f(x), f(x_\delta)){{/math}}, {{#math}}d(f(x_\delta), f_\delta(x_\delta)){{/math}} a {{#math}}d(f_\delta(\tilde x), f(\tilde x)){{/math}} sú všetky menšie ako {{#math}}\tilde \epsilon{{/math}}, takže z trojuholníkovej nerovnosti {{#math}}d(f(x), f(\tilde x)) \gt \epsilon - 3\tilde\epsilon{{/math}}. Voľbou {{#math}}\tilde \epsilon = \epsilon / 4{{/math}} dostávame, že na ľubovoľnom {{#math}}\eta{{/math}}-okolí {{#math}}x{{/math}} je bod {{#math}}\tilde x{{/math}} taký, že {{#math}}d(f(x), f(\tilde x)) \gt \epsilon / 4{{/math}}, takže {{#math}}f{{/math}} nie je v {{#math}}x{{/math}} spojitá, spor.
         </p>
         <p>
-            ({{#math}}\Leftarrow{{/math}}): <span class="todo">konečná {{#math}}\epsilon{{/math}}-sieť: rozdeliť si to na {{#math}}\delta \times \epsilon{{/math}} mriežku a tam spraviť všetky možnosti</span>
+            ({{#math}}\Leftarrow{{/math}}): {{#math}}\overline{F}{{/math}} je kompaktná práve vtedy, keď je uzavretá a totálne omezená. Uzavretá je, takže stačí pre každé {{#math}}\epsilon \gt 0{{/math}} nájsť konečnú {{#math}}\epsilon{{/math}}-sieť. Stačí nám nájsť sieť pre uzavreté {{#math}}\epsilon{{/math}}-okolia, a tam keď sú pokryté všetky funkcie z {{#math}}F{{/math}}, tak budú aj ich limity, takže stačí nájsť {{#math}}\epsilon{{/math}}-sieť {{#math}}F{{/math}}.
+        </p>
+        <p>
+            Zvoľme si nejaké {{#math}}\epsilon{{/math}} (nesúvisiace s tou sieťou) a k nemu nájdime {{#math}}\delta{{/math}} zo spojitosti tých funkcií. Keďže funkcie z {{#math}}F{{/math}} sú rovnomerne omezené, tak ich hodnoty budú všetky v nejakom uzavretom intervale {{#math}}V{{/math}}. Teraz si {{#math}}U{{/math}} rozdelíme na {{#math}}2\delta{{/math}}-dieliky a {{#math}}V{{/math}} na {{#math}}2\epsilon{{/math}}-dieliky. Priestor {{#math}}U \times V{{/math}} teda bude rozdelený na {{#math}}2\delta\times2\epsilon{{/math}}-boxíky.
+        </p>
+        <p>
+            Nech pre každý boxík {{#math}}I \times J{{/math}} je v sieti funkcia {{#math}}g{{/math}}, ktorá prechádza jeho stredom {{#math}}[x, g(x)]{{/math}}. Potom keď máme funkciu {{#math}}f{{/math}}, tak si k nej na tomto {{#math}}\delta{{/math}}-dieliku vyberieme takú funkciu {{#math}}g{{/math}}, že {{#math}}g(x){{/math}} je z tých stredov najbližšie {{#math}}f(x){{/math}}, teda {{#math}}d(f(x), g(x)) \lt \epsilon{{/math}}. Potom pre každé {{#math}}\tilde x \in I{{/math}} platí (z rovnomernej spojitosti) {{#math}}d(f(x), f(\tilde x)) \lt \epsilon{{/math}} a to isté aj pre {{#math}}g{{/math}}, takže {{#math}}d(f(\tilde x), g(\tilde x)) \lt 3\epsilon{{/math}}.
+        </p>
+        <p>
+            Sieť teda budú tvoriť funkcie, ktoré sú všetky možné kombinácie týchto funkcií v jednotlivých {{#math}}2\delta{{/math}}-dielikoch. Pre každú funkciu z {{#math}}F{{/math}} sa hodnoty v {{#math}}x, x + 2\delta{{/math}} môžu líšiť najviac o {{#math}}2\epsilon{{/math}} (zo spojitosti), takže jej príslušné boxíky pozdĺž {{#math}}x{{/math}}-ovej súradnice sa budú dotýkať hranou alebo rohom. Pre každú takúto kombináciu boxíkov si teda ako funkciu do siete zoberieme, že lineárne spojíme príslušné stredy. Týchto funkcií je konečne veľa a tvoria {{#math}}3\epsilon{{/math}}-sieť pre ľubovoľne malé {{#math}}\epsilon{{/math}}.
         </p>
     </section>
 </section>
+
+<h2>Husté a riedke množiny</h2>
+<p><span class="todo"></span></p>
